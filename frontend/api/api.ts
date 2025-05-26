@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Create Axios instance
 const api = axios.create({
-  baseURL: "http://10.12.73.104:8000",
+  baseURL: "http://10.11.73.67:8000",
 });
 
 // Attach interceptor to automatically add token to headers
