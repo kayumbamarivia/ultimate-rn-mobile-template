@@ -7,6 +7,7 @@ import "./globals.css";
 import useAuth, { AuthProvider } from "@/context/useAuth";
 import { ToastProvider } from "react-native-toast-notifications";
 import { Ionicons } from "@expo/vector-icons";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
@@ -100,11 +101,13 @@ export default function RootLayout() {
                 {toastOptions.message}
               </Text>
             </View>
-          );
+          ); 
         }}
       >
       <AuthProvider>
+        <QueryClientProvider client={new QueryClient()}>
         <AppContent onLayoutRootView={onLayoutRootView} />
+        </QueryClientProvider>
       </AuthProvider>
     </ToastProvider>
   );

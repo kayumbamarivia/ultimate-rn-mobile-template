@@ -8,12 +8,11 @@ import { router } from 'expo-router'
 const { width } = Dimensions.get('window')
 const CARD_WIDTH = width - 32 // 16px padding on each side
 
-export default function CarCard({ id, name, description, rating, image }: {
+export default function CarCard({ id, name, description, rating}: {
     readonly id: number,
     readonly name: string,
     readonly description: string,
-    readonly rating: Float,
-    readonly image: string
+    readonly rating: Float
 }) {
     return (
     

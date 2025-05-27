@@ -1,7 +1,8 @@
 import { Ionicons } from "@expo/vector-icons";
 import { View, Text, TextInput, FlatList } from "react-native";
-import { cars } from "@/constants/dummyData";
 import CarCard from "@/components/CarCard";
+
+import { useGetCars } from "@/context/useCar";
 
 function ListEmptyComponent() {
   return (
@@ -14,6 +15,8 @@ function ListEmptyComponent() {
 }
 
 export default function Home() {
+  const { data: cars } = useGetCars();
+
   return (
     <View className="flex-1 bg-white">
       {/* Search Bar */}
@@ -34,10 +37,9 @@ export default function Home() {
         renderItem={({ item }) => (
           <CarCard
             id={item.id}
-            name={item.name}
+            name={item.car_name}
             description={item.description}
             rating={item.rating}
-            image={item.image}
           />
         )}
         showsVerticalScrollIndicator={false}
